@@ -1,0 +1,6 @@
+{% extends "base.html" %}
+{% block content %}
+<h1>{{ title or "Page2" }}</h1>
+<p>這是 Page2。</p>
+<p><a href="{{ request.url_for('page1') }}">回 Page1</a></p>
+{% endblock %}

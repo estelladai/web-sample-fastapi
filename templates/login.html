@@ -1,0 +1,16 @@
+{% extends "base.html" %}
+{% block content %}
+<h1>登入</h1>
+<form method="post" action="{{ request.url_for('login_post') }}">
+  <input type="hidden" name="next" value="{{ next }}">
+  <div>
+    <label>帳號</label>
+    <input name="account" required>
+  </div>
+  <div>
+    <label>密碼</label>
+    <input name="password" type="password" required>
+  </div>
+  <button type="submit">登入</button>
+</form>
+{% endblock %}

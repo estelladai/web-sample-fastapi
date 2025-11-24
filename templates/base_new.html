@@ -1,0 +1,31 @@
+<!doctype html>
+<html lang="zh-Hant">
+<head>
+  <meta charset="utf-8" />
+  <title>{{ title or "FastAPI Demo" }}</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <link rel="stylesheet" href="{{ request.url_for('static', path='styles.css') }}">
+</head>
+<body>
+  <div class="navbar">
+    <div class="container">
+      <h1>FastAPI Demo</h1>
+      <nav>
+        <a href="{{ request.url_for('index') }}">首頁</a>
+        <a href="{{ request.url_for('page1') }}">Page1</a>
+        <a href="{{ request.url_for('page2') }}">Page2</a>
+        <a href="/docs">API 文檔</a>
+        {% if request.session.get("user_id") %}
+          <a href="{{ request.url_for('logout') }}">登出 ({{ request.session.get("user_id") }})</a>
+        {% else %}
+          <a href="{{ request.url_for('login_get') }}">登入</a>
+        {% endif %}
+      </nav>
+    </div>
+  </div>
+  
+  <div class="container">
+    {% block content %}{% endblock %}
+  </div>
+</body>
+</html>

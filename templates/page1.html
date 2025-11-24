@@ -1,0 +1,6 @@
+{% extends "base.html" %}
+{% block content %}
+<h1>{{ title or "Page1" }}</h1>
+<p>這是 Page1。上方導覽列是共用的（base.html）。</p>
+<p><a href="{{ request.url_for('page2') }}">前往 Page2</a></p>
+{% endblock %}
